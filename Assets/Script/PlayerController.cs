@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        speed = 900f;
+        speed = 500f;
     }
 
     // Update is called once per frame
@@ -22,8 +22,10 @@ public class PlayerController : MonoBehaviour
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         rb2d.AddForce(move * speed * Time.deltaTime);
+        
+        //rb2d.MovePosition(rb2d.position + speed * Time.deltaTime);
     }
 }
